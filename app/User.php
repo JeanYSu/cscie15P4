@@ -36,4 +36,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function kids()
+    {
+        # User has multiple kids
+        return $this->belongsToMany('\P4\Kid')->withTimestamps();
+    }
 }
