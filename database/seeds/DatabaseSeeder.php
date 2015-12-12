@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(KidsTableSeeder::class);
         $this->call(PhotosTableSeeder::class);
         $this->call(TagsTableSeeder::class);
+        $this->call(PhotoTagTableSeeder::class);
+        $this->call(KidUserTableSeeder::class);
 
         Model::reguard();
     }

@@ -22,5 +22,11 @@ class UsersTableSeeder extends Seeder
         $user->email = 'jamal@harvard.edu';
         $user->password = \Hash::make('helloworld');
         $user->save();
+
+        $user = \P4\User::firstOrCreate(['email' => 'jeansu_class@hotmail.com']);
+        $user->name = 'Jean';
+        $user->email = 'jeansu_class@hotmail.com';
+        $user->password = \Hash::make('helloworld');
+        $user->save();
     }
 }

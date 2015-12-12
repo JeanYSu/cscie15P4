@@ -33,7 +33,7 @@ class ConnectKidsAndPhotos extends Migration
 
             # ref: http://laravel.com/docs/5.1/migrations#dropping-indexes
             # combine tablename + fk field name + the word "foreign"
-            $table->dropForeign('photo_kid_id_foreign');
+            $table->dropForeign('photos_kid_id_foreign');
             $table->dropColumn('kid_id');
         });
     }

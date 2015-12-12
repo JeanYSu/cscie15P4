@@ -38,12 +38,12 @@
         </div>
 
         <div class='form-group'>
-            <label for='photo_url'>* Photo (URL):</label>
+            <label for='image_url'>* Photo (URL):</label>
             <input
                 type='text'
-                id='photo_url'
-                name="photo_url"
-                value='{{ old('cover','http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s118x184.jpg') }}'
+                id='image_url'
+                name="image_url"
+                value='{{ old('image_url','http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s118x184.jpg') }}'
                 >
         </div>
 

@@ -20,23 +20,14 @@ class PhotoController extends Controller
      * Responds to requests to GET /photos/add
      */
     public function getAdd() {
-        //TODO get the dropdown list working
-        //$kidModel = new \P4\Kid();
-        //$kids_for_dropdown = $kidModel->getKidsForDropdown();
-        $kids_for_dropdown = [];
-        $kids_for_dropdown[1] = "Jasper";
-        $kids_for_dropdown[2] = "Olivia";
-        $kids_for_dropdown[3] = "Emily";
 
+        $kidModel = new \P4\Kid();
+        $kids_for_dropdown = $kidModel->getKidsForDropdown();
 
         # Get all the tags to choose
-        //$tagModel = new \P4\Tag();
-        $tags_for_checkbox = [];
-        $tags_for_checkbox[1] = "boy";
-        $tags_for_checkbox[2] = "girl";
-        $tags_for_checkbox[3] = "smile";
-
-        //$tags_for_checkbox = $tagModel->getTagsForCheckboxes();
+        $tagModel = new \P4\Tag();
+        $tags_for_checkbox = $tagModel->getTagsForCheckboxes();
+        
         return view('photos.add')
             ->with('kids_for_dropdown',$kids_for_dropdown)
             ->with('tags_for_checkbox',$tags_for_checkbox);
