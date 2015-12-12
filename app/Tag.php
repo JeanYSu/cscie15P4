@@ -14,7 +14,7 @@ class Tag extends Model
         $tags = $this->orderBy('name','ASC')->get();
         $tagsForCheckboxes = [];
         foreach($tags as $tag) {
-            $tagsForCheckboxes[$tag->id] = $tag->name;
+            $tagsForCheckboxes[$tag->id] = $tag;
         }
         return $tagsForCheckboxes;
     }

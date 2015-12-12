@@ -76,3 +76,7 @@ Route::get('/photos/show/{title?}', 'PhotoController@getShow');
 Route::get('/photos', 'PhotoController@getIndex');
 Route::get('/photos/add', 'PhotoController@getAdd');
 Route::post('/photos/add', 'PhotoController@postAdd');
+Route::get('/photos/edit/{id?}', 'PhotoController@getEdit');
+Route::post('/photos/edit', 'PhotoController@postEdit');
+Route::get('/photos/confirm-delete/{id?}', 'PhotoController@getConfirmDelete');
+Route::get('/photos/delete/{id?}', 'PhotoController@getDoDelete');

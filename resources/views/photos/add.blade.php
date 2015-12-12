@@ -24,7 +24,7 @@
                 type='text'
                 id='title'
                 name='title'
-                value='{{ old('title','One naghty kid photo') }}'
+                value='{{ old('title','My kid moment') }}'
             >
         </div>
 
@@ -32,8 +32,8 @@
             <label for='kid'>* Kid:</label>
             <select name='kid' id='kid'>
                 @foreach($kids_for_dropdown as $kid_id => $kid_name)
-                    <option value='{{ $kid_id }}'> {{ $kid_name }} </option>
-                @endforeach
+                    <option value='{{ $kid_id }}' @if (old('kid') == $kid_id) selected="selected" @endif> {{ $kid_name }} </option>
+                 @endforeach
             </select>
         </div>
 
@@ -47,10 +47,17 @@
                 >
         </div>
 
+
         <div class='form-group'>
             <label for='tags'>Tags</label>
-            @foreach($tags_for_checkbox as $tag_id => $tag_name)
-                <input type='checkbox' name='tags[]' value='{{ $tag_id }}'> {{ $tag_name }}<br>
+            @foreach($tags_for_checkbox as $tag_id => $tag)
+                <?php
+                    $checked = '';
+                    if(old('tags')){
+                        $checked = (in_array($tag['id'], old('tags')) ? 'CHECKED' : '');
+                    }
+                ?>
+                <input {{ $checked }} type='checkbox' name='tags[]' value='{{$tag['id']}}' > {{ $tag['name'] }}<br>
             @endforeach
         </div>
 

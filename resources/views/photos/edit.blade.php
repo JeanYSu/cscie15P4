@@ -18,7 +18,7 @@
         <input type='hidden' name='id' value='{{ $photo->id }}'>
 
         <div class='form-group'>
-            <label>* Title:</label>
+            <label for='title'>* Title:</label>
             <input
                 type='text'
                 id='title'
@@ -38,13 +38,16 @@
         </div>
 
         <div class='form-group'>
-            <label for='title'>* Image (URL):</label>
+            <label for='image_url'>* Image (URL):</label>
             <input
                 type='text'
-                id='imageurl'
-                name="imageurl"
-                value='{{$photo->imageurl}}'
+                id='image_url'
+                name="image_url"
+                value='{{$photo->image_url}}'
                 >
+        </div>
+        <div class='form-group'>
+            <img src='{{ $photo->image_url }}' style='width:150px'>
         </div>
 
 

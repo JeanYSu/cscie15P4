@@ -16,7 +16,7 @@
                 <h2>{{ $photo->title }}</h2>
                 <a href='/photos/edit/{{$photo->id}}'>Edit</a> |
                 <a href='/photos/confirm-delete/{{$photo->id}}'>Delete</a><br>
-                <img src='{{ $photo->imageurl }}'>
+                <img src='{{ $photo->image_url }}' style='width:200px'>
             </div>
         @endforeach
     @endif
