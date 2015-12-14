@@ -25,7 +25,7 @@
             <br>
             Before you add a photo, please create a kid's record first.
             <br>
-            This will allow you to associate a photo moment to your kid.
+            This will allow you to associate a photo moment to your kid:  
             <a href='/kids/add'>Add a kid</a>
         @else
             <br>

@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password','facebook_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -41,4 +41,5 @@ class User extends Model implements AuthenticatableContract,
         # User has multiple kids
         return $this->belongsToMany('\P4\Kid')->withTimestamps();
     }
+
 }

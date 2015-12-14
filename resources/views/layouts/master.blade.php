@@ -43,14 +43,14 @@
     <div class="container">
         <ul class="nav nav-pills nav-justified">
             @if(Auth::check())
-                <li @yield('homemenu'))><a href='/'>Home</a></li>
+                <li @yield('homemenu')><a href='/'>Home</a></li>
                 <li @yield('addkidmenu')><a href='/kids/add'>Add a kid</a></li>
                 <li @yield('addphotomenu')><a href='/photos/add'>Add a photo</a></li>
                 <li><a href='/logout'>Log out {{ Auth::user()->name }}</a></li>
             @else
-                <li><a href='/'>Home</a></li>
-                <li><a href='/login'>Log in</a></li>
-                <li><a href='/register'>Register</a></li>
+                <li @yield('homemenu') ><a href='/'>Home</a></li>
+                <li @yield('loginmenu')><a href='/login'>Log in</a></li>
+                <li @yield('registermenu')><a href='/register'>Register</a></li>
             @endif
         </ul>
     </div>

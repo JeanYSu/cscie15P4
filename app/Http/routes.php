@@ -89,3 +89,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/photos/confirm-delete/{id?}', 'PhotoController@getConfirmDelete');
     Route::get('/photos/delete/{id?}', 'PhotoController@getDoDelete');
 });
+Route::get('/facebook', 'Auth\SocialController@redirectToProvider');
+Route::get('/facebook/callback', 'Auth\SocialController@handleProviderCallback');

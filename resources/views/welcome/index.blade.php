@@ -4,6 +4,16 @@
     Welcome to KidzMoments
 @stop
 
+@section('homemenu')
+    class="active"
+@stop
+@section('loginmenu')
+
+@stop
+@section('registermenu')
+
+@stop
+
 @section('content')
     <p>
         <h2>Welcome to Kidz Moments, a kid's moment sharing organizer for family members.</h2>

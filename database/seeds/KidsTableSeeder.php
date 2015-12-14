@@ -14,8 +14,8 @@ class KidsTableSeeder extends Seeder
         DB::table('kids')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'name' => 'Josephine',
-            'gender' => 'F',
+            'name' => 'John',
+            'gender' => 'M',
             'family_code' => 'helloworld',
         ]);
 

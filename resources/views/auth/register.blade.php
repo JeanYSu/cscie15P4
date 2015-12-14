@@ -1,5 +1,15 @@
 @extends('layouts.master')
 
+@section('homemenu')
+
+@stop
+@section('loginmenu')
+
+@stop
+@section('registermenu')
+    class="active"
+@stop
+
 @section('content')
 
     <p>Already have an account? <a href='/login'>Login here...</a></p>

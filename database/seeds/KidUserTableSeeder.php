@@ -12,7 +12,7 @@ class KidUserTableSeeder extends Seeder
     public function run()
     {
         $kids =[
-            'Anonymous' => ['Jill','Jamal','Jean'],
+            'John' => ['Jill','Jamal','Jean'],
             'Jasper' => ['Jean'],
             'Olivia' => ['Jill','Jean'],
             'Emily' => ['Jamal','Jean']

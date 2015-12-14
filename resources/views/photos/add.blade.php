@@ -52,7 +52,7 @@
                 type='text'
                 id='image_url'
                 name="image_url"
-                value='{{ old('image_url','http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s118x184.jpg') }}'
+                value='{{ old('image_url','http://d3drsuq3xbnvq3.cloudfront.net/jp/pictures/201512/537083429/49e74c963945427f8d0dfb37924c948f.jpg') }}'
                 >
         </div>
 
