@@ -6,6 +6,15 @@
 
 @section('head')
 @stop
+@section('homemenu')
+
+@stop
+@section('addkidmenu')
+
+@stop
+@section('addphotomenu')
+    class="active"
+@stop
 
 
 
@@ -49,16 +58,18 @@
 
 
         <div class='form-group'>
-            <label for='tags'>Tags</label>
-            @foreach($tags_for_checkbox as $tag_id => $tag)
-                <?php
-                    $checked = '';
-                    if(old('tags')){
-                        $checked = (in_array($tag['id'], old('tags')) ? 'CHECKED' : '');
-                    }
-                ?>
-                <input {{ $checked }} type='checkbox' name='tags[]' value='{{$tag['id']}}' > {{ $tag['name'] }}<br>
-            @endforeach
+            <label for='tags'>Tags:</label>
+                @foreach($tags_for_checkbox as $tag_id => $tag)
+                    <?php
+                        $checked = '';
+                        if(old('tags')){
+                            $checked = (in_array($tag['id'], old('tags')) ? 'CHECKED' : '');
+                        }
+                    ?>
+                    <input {{ $checked }} type='checkbox' name='tags[]' value='{{$tag['id']}}'>{{ $tag['name'] }}
+                    <br>
+                @endforeach
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Add photo</button>

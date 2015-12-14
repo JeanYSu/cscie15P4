@@ -16,8 +16,9 @@
 
     <link href='/css/global.css' rel='stylesheet'>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
@@ -39,19 +40,20 @@
         </a>
     </header>
 
-    <nav>
-        <ul>
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
             @if(Auth::check())
-                <li><a href='/'>Home</a></li>
-                <li><a href='/photos/create'>Add a photo</a></li>
-                <li><a href='/logout'>Log out {{ $user->name }}</a></li>
+                <li @yield('homemenu'))><a href='/'>Home</a></li>
+                <li @yield('addkidmenu')><a href='/kids/add'>Add a kid</a></li>
+                <li @yield('addphotomenu')><a href='/photos/add'>Add a photo</a></li>
+                <li><a href='/logout'>Log out {{ Auth::user()->name }}</a></li>
             @else
                 <li><a href='/'>Home</a></li>
                 <li><a href='/login'>Log in</a></li>
                 <li><a href='/register'>Register</a></li>
             @endif
         </ul>
-    </nav>
+    </div>
 
     <section>
         {{-- Main page content will be yielded here --}}
@@ -59,7 +61,7 @@
     </section>
 
     <footer>
-        &copy; {{ date('Y') }} &nbsp;&nbsp;
+        CSCI E-15 Project 4 | Autho: Jean Su | Copyright &copy; {{ date('Y') }} &nbsp;&nbsp;
     </footer>
 
 

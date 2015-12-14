@@ -20,7 +20,7 @@ class CreateKidsTable extends Migration
             # add title and image_url field for the photo
             $table->string('name');
             $table->string('gender');
-            $table->string('family_code_encrypted');
+            $table->string('family_code');
 
         });
     }

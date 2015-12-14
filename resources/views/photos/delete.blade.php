@@ -14,7 +14,11 @@
     </p>
 
     <p>
-        <a href='/photos/delete/{{$photo->id}}'>Yes!</a>
+        <h4>
+            <a href='/photos/delete/{{$photo->id}}'><span class="label label-primary">Yes!</span></a>
+            <a href='/photos/edit/{{$photo->id}}'><span class="label label-primary">Cancel</span></a>
+        </h4>
     </p>
+
 
 @stop

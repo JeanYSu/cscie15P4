@@ -7,6 +7,15 @@
 
 @section('head')
 @stop
+@section('homemenu')
+
+@stop
+@section('addkidmenu')
+
+@stop
+@section('addphotomenu')
+    class="active"
+@stop
 
 @section('content')
 

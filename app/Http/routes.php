@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(Auth::check()){
+        return redirect('/photos');
+    }else {
+        return view('welcome.index');
+    }
+});
+
+Route::get('/home', function () {
+    return view('photos.index');
 });
 
 Route::get('/debug', function() {
@@ -64,19 +72,20 @@ Route::get('/confirm-login-worked', function() {
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/kids/add', 'KidController@getAdd');
     Route::post('/kids/add', 'KidController@postAdd');
+    Route::post('/kids/addcode', 'KidController@postAddCode');
     Route::get('/kids/edit/{id?}', 'KidController@getEdit');
     Route::post('/kids/edit', 'KidController@postEdit');
     Route::get('/kids/confirm-delete/{id?}', 'KidController@getConfirmDelete');
-    Route::get('/kids/delete/{id?}', 'KidController@getDelete');
+    Route::get('/kids/delete/{id?}', 'KidController@getDoDelete');
     Route::get('/kids', 'KidController@getIndex');
     Route::get('/kids/show/{name?}', 'KidController@getShow');
-});
 
-Route::get('/photos/show/{title?}', 'PhotoController@getShow');
-Route::get('/photos', 'PhotoController@getIndex');
-Route::get('/photos/add', 'PhotoController@getAdd');
-Route::post('/photos/add', 'PhotoController@postAdd');
-Route::get('/photos/edit/{id?}', 'PhotoController@getEdit');
-Route::post('/photos/edit', 'PhotoController@postEdit');
-Route::get('/photos/confirm-delete/{id?}', 'PhotoController@getConfirmDelete');
-Route::get('/photos/delete/{id?}', 'PhotoController@getDoDelete');
+    Route::get('/photos/show/{title?}', 'PhotoController@getShow');
+    Route::get('/photos', 'PhotoController@getIndex');
+    Route::get('/photos/add', 'PhotoController@getAdd');
+    Route::post('/photos/add', 'PhotoController@postAdd');
+    Route::get('/photos/edit/{id?}', 'PhotoController@getEdit');
+    Route::post('/photos/edit', 'PhotoController@postEdit');
+    Route::get('/photos/confirm-delete/{id?}', 'PhotoController@getConfirmDelete');
+    Route::get('/photos/delete/{id?}', 'PhotoController@getDoDelete');
+});

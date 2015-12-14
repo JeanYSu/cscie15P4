@@ -74,8 +74,6 @@ ul.errors {
     list-style-type:none;
 }
 
-
-
 /*----------------------------------------------------
 Flash message
 -----------------------------------------------------*/
@@ -86,6 +84,6 @@ Flash message
     position:fixed;
     top:0;
     left:0;
-    background-color:green;
+    background-color:lightgreen;
     font-weight:bold;
 }

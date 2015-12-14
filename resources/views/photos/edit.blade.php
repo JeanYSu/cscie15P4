@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <h1>Edit</h1>
+    <h1>Edit Photo</h1>
 
     @include('layouts.errors')
 

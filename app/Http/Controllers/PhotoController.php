@@ -42,6 +42,7 @@ class PhotoController extends Controller
             [
                 'title' => 'required|min:3',
                 'image_url' => 'required|url',
+                'kid' =>'required',
             ]
         );
         # Add photo info into photo object
@@ -98,6 +99,15 @@ class PhotoController extends Controller
     * Responds to requests to POST /photos/edit
     */
     public function postEdit(Request $request) {
+        $this->validate(
+            $request,
+            [
+                'title' => 'required|min:3',
+                'image_url' => 'required|url',
+                'kid' =>'required',
+            ]
+        );
+
         $photo = \P4\Photo::find($request->id);
         $photo->title = $request->title;
         $photo->kid_id = $request->kid;
@@ -118,22 +128,40 @@ class PhotoController extends Controller
     * Responds to requests to GET /photos for a list of photos belonging to a kid
     */
     public function getIndex(Request $request) {
-        // Get all the photos belonging to the selected kid
+        // Get all the photos belonging to the selected user's kids
         // Sort in descending order by id
-        //TODO: fix from user id to kid id
-        $photos = \P4\Photo::where('id','>=','1')->get();
-        return view('photos.index')->with('photos',$photos);
+
+        $photos = \P4\Photo::with('kid')
+                    ->select('photos.*')
+                    ->leftJoin('kid_user', 'kid_user.kid_id' , '=','photos.kid_id')
+                    ->where('kid_user.user_id',\Auth::user()->id)
+                    ->orderBy('photos.id','DESC')
+                    ->get();
+
+
+        //Get a list of kids to let user know to add a kid record to start using the app
+        $kids =[];
+        if (sizeof($photos) == 0){
+            $kids = \P4\Kid::with('photos')
+                    ->select('kids.*')
+                    ->leftJoin('kid_user', 'kids.id', '=','kid_user.kid_id')
+                    ->where('kid_user.user_id',\Auth::user()->id)
+                    ->orderBy('kids.name','ASC')
+                    ->get();
+        }
+        return view('photos.index')->with('photos',$photos)
+                                   ->with('kids',$kids);
     }
 
     /**
-    *
+    * Responds to requests to Get /photos/confirm-delete
     */
     public function getConfirmDelete($photo_id) {
         $photo = \P4\Photo::find($photo_id);
         return view('photos.delete')->with('photo', $photo);
     }
     /**
-    *
+    * Responds to requests to Process /photos/delete/{?id}
     */
     public function getDoDelete($photo_id) {
         $photo = \P4\Photo::find($photo_id);
