@@ -44,9 +44,10 @@
 
 <form method='POST' action='/kids/addcode'>
     <h1>OR</h1>
+    <input type='hidden' value='{{ csrf_token() }}' name='_token'>
     <div class="form-group">
         {!! Form::label('* Add a kid with family code:') !!}
-        {!! Form::text('code', null, array('placeholder'=>'')) !!}
+        {!! Form::text('family_code', null, array('placeholder'=>'')) !!}
     </div>
     <button type="submit" class="btn btn-primary">Add kid with family code</button>
 </form>

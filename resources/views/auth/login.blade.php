@@ -61,7 +61,7 @@
             <label for='remember' class='checkboxLabel'>Remember me</label>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LcJ9xITAAAAAI-CjpGNsmPzuYqA43-X910RTPp4"></div>
+        <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
 
         <button type='submit' class='btn btn-primary'>Login</button>
         <a class="btn btn-primary" href="{{ action('Auth\SocialController@redirectToProvider') }}">

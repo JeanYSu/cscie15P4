@@ -50,6 +50,51 @@ class KidController extends Controller
     }
 
     /**
+    * Responds to requests to POST /kids/add
+    */
+    public function postAddCode(Request $request) {
+        $this->validate(
+            $request,
+            [
+                'family_code' => 'required',
+            ]
+        );
+
+        $kid = \P4\Kid::with('users')
+                ->where('family_code','=',$request->family_code)->first();
+
+        # Does not find kid matching the family code entered
+        if(sizeof($kid) ==0) {
+            \Session::flash('flash_message','The family code entered does not match to a kid.');
+            return redirect('/kids');
+        }
+         
+        $existingkids = \P4\Kid::select('kids.*')
+                ->leftJoin('kid_user', 'kids.id', '=','kid_user.kid_id')
+                ->where('kid_user.user_id',\Auth::user()->id)
+                ->get();
+
+        # Check if the user laready has this kid in the account
+        if(isset($existingkids)){
+            foreach($existingkids as $ekid){
+                if ($ekid->id == $kid->id){
+                    # the kid is already in user's kid list
+                    \Session::flash('flash_message','You already have this kid in your account!');
+                    return redirect('/kids');
+                }
+
+            }
+        }
+
+        # Add user info and link kid and user together
+        $user = \Auth::user();
+        $kid->users()->save($user);
+
+        \Session::flash('flash_message','Your kid was added successfully!');
+        return redirect('/kids');
+    }
+
+    /**
     * Responds to requests to GET /kids/edit/{$id}
     */
     public function getEdit($id = null) {

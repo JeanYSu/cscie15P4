@@ -33,7 +33,7 @@
                 type='text'
                 id='title'
                 name='title'
-                value='{{ old('title','My kid moment') }}'
+                value='{{ old('title','My kidz moment') }}'
             >
         </div>
 
