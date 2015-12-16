@@ -27,7 +27,7 @@ A kid's photo moment can be associated to a kid's record via "Add a photo" menu.
 On the "Add a photo" page, photo's title, image URL and belonging kid are required before a photo's record is saved. Moreover, tags can be associated to each photo.
 
 ## Demo
-[https://youtu.be/IJ9L65w2YZk](https://youtu.be/IJ9L65w2YZk)
+[https://youtu.be/NtQtcVQsZZ4](https://youtu.be/NtQtcVQsZZ4)
 
 ## Details for teaching team
 User login is required to access kids or photos menu.
