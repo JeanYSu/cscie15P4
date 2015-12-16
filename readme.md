@@ -1,36 +1,57 @@
-# CSCI E-15 Project 4 Kidz Moments by Jean Yu Chun Su
+# CSCI E-15 Project 4 KidzMoments by Jean Yu Chun Su
 
 ## Live URL
 [http://p4.meiosise.com](http://p4.meiosise.com)
 
 ## Description
-This project is to generate random paragraphs of text, users or xkcd style password to help developers obtain useful unit testing data in our daily work.
+This project is to create a kids moment sharing platform for family members to use.
+The target users are parents or relatives of a kid to add a kid into the user profile and the kid's moments photos. A user can invite their family members to add the kid's profile with a family code.
 The application is created with Laravel framework and Composer is used to manage packages applied in the project.
 Controllers were used to route pages and views were used to organize GUI page html.
 
-Users can select maximum of 99 paragraphs to generate lorem ipsum text placeholder.
+Users can register an account using unique email address.
+Once the user account is registered, user can login via login form.
+Users who have Facebook accounts can also login directly via Facebook connect.
 
+Users can access kids or photos content only after they are logged in.
 
-Users can select maximum of 20 users to generate random user data with their name, birthdate, profile and favorite food data shown in the result.
+Once a user is logged in, he/she will be redirected to home page with a list of photos belonging to the user's kids.
 
+There are two menu, "Add a kid" and "Add a photo" allowing users to add more kids or their photos to the account.
 
-Users can select maximum of 9 words to generate a xkcd style password. Moreover, a number or special symbol can be appended to the password. Users can also change all letters in the password to uppercases.
+Users will need to create a kid profile first before a photo is added/associated to the kid's profile.
+In the "Add a kid" menu, a kid's name, gender and family code are required to create the kid's profile. User can add a kid's avatar if needed.
+The family code is intended to invite other family members to add the same kid to their user accounts so that the same kid's photo moments can be shared in a family.
 
+A kid's photo moment can be associated to a kid's record via "Add a photo" menu.
+On the "Add a photo" page, photo's title, image URL and belonging kid are required before a photo's record is saved. Moreover, tags can be associated to each photo.
 
 ## Demo
 [https://youtu.be/IJ9L65w2YZk](https://youtu.be/IJ9L65w2YZk)
 
 ## Details for teaching team
-User login required.
+User login is required to access kids or photos menu.
 
-A RandomUser class was created to support random user creation so that all user data can be stored in an array with user objects. The class source code is located at app/Http/Library folder (Library folder is a new folder added in the project in order to store source code of new classes added outside Laravel framework).
+Two default user accounts, Jamal and Jill were seeded in the database per project requirement.
 
-The welcome.blade.php file created by Laravel framework was moved to views/home folder to better organize views corresponding to controller action.
+Please use 'hellojasper' or 'hellooly' if you want to add an existing kid via family code feature.
 
-The source code of the project can be found at my github repository: <https://github.com/JeanYSu/cscie15P3>
+The index.blade.php file created by Laravel framework was moved to views/welcome folder to better organize views corresponding to controller action. The content was updated to welcome guests to the application for the first time.
+
+The index.blade.php file under views/photos folder is the home page to greet logged-in users to take the next action. If the user did not have any kid belonging to the account, he/she will be greeted to create a kid's profile first before adding a kid's moment photo.
+
+The following three non-essential features were completed per project requirement:
+    * Login via Facebook connect oAuth2
+    * Register form with Google reCAPTCHA to prevent spam robot account creation
+    * Add a kid's avatar via local image upload on the kid's profile creation page
+
+The source code of the project can be found at my github repository: <https://github.com/JeanYSu/cscie15P4>
 
 ## Outside code
 * Bootstrap: http://www.w3schools.com/bootstrap/
-* css style for sticky footer http://getbootstrap.com/examples/sticky-footer-navbar/
-* Package: backcow/lorem-ipsum used for lorem ipsum generator
-* Package: fzaninotto/faker used for random user generator and xkcd style password generator
+* Package: anhskohbo/no-captcha used for reCAPTCHA component on user account creation page
+* Package: laravelcollective/html used for image file upload component on kid's profile creation
+ page
+* Package: laravel/socialite used for Facebook login connect integration
+* Package: barryvdh/laravel-debugbar for debugging sql queries and page performance at dev environment
+* Foobooks project for basic CRUD form requirement references https://github.com/susanBuck/foobooks
