@@ -41,9 +41,9 @@ The index.blade.php file created by Laravel framework was moved to views/welcome
 The index.blade.php file under views/photos folder is the home page to greet logged-in users to take the next action. If the user did not have any kid belonging to the account, he/she will be greeted to create a kid's profile first before adding a kid's moment photo.
 
 The following three non-essential features were completed per project requirement:
-    * Login via Facebook connect oAuth2
-    * Register form with Google reCAPTCHA to prevent spam robot account creation
-    * Add a kid's avatar via local image upload on the kid's profile creation page
+* Login via Facebook connect oAuth2
+* Register form with Google reCAPTCHA to prevent spam robot account creation
+* Add a kid's avatar via local image upload on the kid's profile creation page
 
 The source code of the project can be found at my github repository: <https://github.com/JeanYSu/cscie15P4>
 
