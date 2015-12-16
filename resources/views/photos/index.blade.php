@@ -31,7 +31,7 @@
             <br>
             Please add a photo from <a href='/photos/add'>here</a>.
             <br>
-            Here is the list of kids belonging to your account: <a href='/photos/add'>kids.</a>
+            Here is the list of kids belonging to your account: <a href='/kids/'>kids.</a>
         @endif
 
     @else
@@ -74,7 +74,7 @@
         </div>
 
         <div class="container">
-            Here is the list of kids belonging to your account: <a href='/photos/add'>kids.</a>
+            Here is the list of kids belonging to your account: <a href='/kids/'>kids.</a>
         </div>
     @endif
 @stop
