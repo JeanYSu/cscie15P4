@@ -25,11 +25,13 @@
             <br>
             Before you add a photo, please create a kid's record first.
             <br>
-            This will allow you to associate a photo moment to your kid:  
+            This will allow you to associate a photo moment to your kid:
             <a href='/kids/add'>Add a kid</a>
         @else
             <br>
             Please add a photo from <a href='/photos/add'>here</a>.
+            <br>
+            Here is the list of kids belonging to your account: <a href='/photos/add'>kids.</a>
         @endif
 
     @else
@@ -69,6 +71,10 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div class="container">
+            Here is the list of kids belonging to your account: <a href='/photos/add'>kids.</a>
         </div>
     @endif
 @stop
