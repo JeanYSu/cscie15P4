@@ -47,6 +47,9 @@ The following three non-essential features were completed per project requiremen
 
 The source code of the project can be found at my github repository: <https://github.com/JeanYSu/cscie15P4>
 
+The planning document handed in November:
+<https://docs.google.com/document/d/1KsVl8w3nNkHbyZR5mmtS9eNK4PDx2wSdbvI5-CEl-gE/edit?usp=sharing>
+
 ## Outside code
 * Bootstrap: http://www.w3schools.com/bootstrap/
 * Package: anhskohbo/no-captcha used for reCAPTCHA component on user account creation page
