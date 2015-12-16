@@ -11,7 +11,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['Happy','Angry','Sad','Easy','Busy','Dizzy','Crazy','Messy','Noisy'];
+        $data = ['Happy','Angry','Sad','Easy','Busy','Dizzy','Crazy','Messy','Noisy','Grumpy','Funny','Jolly'];
         foreach($data as $tagName) {
            $tag = new \P4\Tag();
            $tag->name = $tagName;

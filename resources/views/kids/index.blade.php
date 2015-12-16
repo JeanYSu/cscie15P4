@@ -26,6 +26,11 @@
             <div>
                 <h4>Name: {{ $kid->name }}</h4>
                 <h4>Gender: {{ $kid->getGender() }}</h4>
+                <h4>Family Code: {{ $kid->family_code }}</h4>
+                @if(strlen($kid->avatar)>0)
+                    <img src='img/uploads/{{ $kid->avatar }}' style='width:100px' class="img-circle">
+                    <br>
+                @endif
                 <a href='/kids/edit/{{$kid->id}}'>Edit</a> |
                 <a href='/kids/confirm-delete/{{$kid->id}}'>Delete</a><br>
                 <hr>

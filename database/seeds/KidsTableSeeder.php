@@ -24,6 +24,7 @@ class KidsTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'name' => 'Jasper',
             'gender' => 'M',
+            'avatar' => '111111.jpg',
             'family_code' => 'hellojasper',
         ]);
 

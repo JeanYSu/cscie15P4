@@ -21,26 +21,28 @@
     <h1>Add a new kid</h1>
 @include('layouts.errors')
 
-<form method='POST' action='/kids/add'>
-    <input type='hidden' value='{{ csrf_token() }}' name='_token'>
-    <div class="form-group">
+{!! Form::open(array('url'=>'kids/add','method'=>'POST', 'files'=>true)) !!}
+<div class="control-group">
+    <div class="controls">
         {!! Form::label('* Name:') !!}
         {!! Form::text('name', null, array('placeholder'=>'')) !!}
     </div>
-    <div class='form-group'>
+    <div class="controls">
         {!! Form::label('* Gender:') !!}
         {!! Form::select('gender', array('' => '','F' => 'Female', 'M' => 'Male', 'N' => 'Preferred not to tell'), '') !!}
     </div>
-    <div class="form-group">
+    <div class="controls">
         {!! Form::label('* Family Code:') !!}
         {!! Form::text('family_code', null, array('placeholder'=>'')) !!}
     </div>
-    <div class="form-group">
-        {!! Form::label('* Kid Avatar:') !!}
-        {!! Form::file('image', null) !!}
+    <div class="controls">
+        {!! Form::label('Kid Avatar:') !!}
+        {!! Form::file('image') !!}
+        <br>
     </div>
-    <button type="submit" class="btn btn-primary">Add kid</button>
-</form>
+</div>
+{!! Form::submit('Add Kid', array('class'=>'btn btn-primary')) !!}
+{!! Form::close() !!}
 
 <form method='POST' action='/kids/addcode'>
     <h1>OR</h1>

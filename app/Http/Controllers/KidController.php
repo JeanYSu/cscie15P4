@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use P4\Http\Requests;
 use P4\Http\Controllers\Controller;
+use Input;
 
 class KidController extends Controller
 {
@@ -34,12 +35,37 @@ class KidController extends Controller
                 'family_code' => 'required|min:6',
             ]
         );
+        # getting all of the post data
+        $file = Input::file('image');
+        #check if there is image uploaded through requet
+        if (is_null($file)){
+            $fileName = '';
+        }else{
+            # checking file is valid.
+            if ($file->isValid()) {
+                # File is valid. Proceed on uploading file to web folder
+                # Step 1. set file upload destination path
+                $destinationPath = base_path().'/public/img/uploads/';
+                # Step 2. get image file extension
+                $extension = $file->getClientOriginalExtension();
+                # Step 3. rename image file name for uploading
+                $fileName = rand(111111,999999).'.'.$extension;
+                # Step 4. upload file to designed web folder
+                $file->move($destinationPath, $fileName);
+            }
+            else {
+                // File is not valid. Sending user back to kids page
+                \Session::flash('flash_message', 'Uploaded file is not valid!');
+                return redirect('/kids');
+            }
+        }
 
         # Add kid info into kid object
         $kid = new \P4\Kid();
         $kid->name = $request->name;
         $kid->gender = $request->gender;
         $kid->family_code = $request->family_code;
+        if (strlen($fileName) > 0){$kid->avatar = $fileName;}
         $kid->save();
         # Add user info
         $user = \Auth::user();
@@ -68,7 +94,7 @@ class KidController extends Controller
             \Session::flash('flash_message','The family code entered does not match to a kid.');
             return redirect('/kids');
         }
-         
+
         $existingkids = \P4\Kid::select('kids.*')
                 ->leftJoin('kid_user', 'kids.id', '=','kid_user.kid_id')
                 ->where('kid_user.user_id',\Auth::user()->id)
@@ -79,7 +105,7 @@ class KidController extends Controller
             foreach($existingkids as $ekid){
                 if ($ekid->id == $kid->id){
                     # the kid is already in user's kid list
-                    \Session::flash('flash_message','You already have this kid in your account!');
+                    \Session::flash('flash_message','You already have '.$kid->name.' in your account!');
                     return redirect('/kids');
                 }
 

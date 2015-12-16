@@ -44,7 +44,6 @@
                     <option value='{{ $gender_id }}' {{ $selected }}> {{ $gender_name }} </option>
                 @endforeach
             </select>
-            {{ $kid->gender }}
         </div>
 
         <div class='form-group'>

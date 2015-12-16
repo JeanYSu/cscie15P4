@@ -3,7 +3,7 @@
 <head>
     <title>
         {{-- Yield the title if it exists, otherwise default to 'OneNaughtyKid' --}}
-        @yield('title','P4 - OneNaughtyKid')
+        @yield('title','P4 - KidzMoments')
     </title>
 
     <meta charset='utf-8'>
@@ -34,13 +34,16 @@
     <header>
         <a href='/'>
         <img
-        src='/img/logo.png'
-        style='width:100px'
+        src='/img/sitebanner.png'
+        style='width:800px'
         alt='Banner'>
         </a>
     </header>
 
     <div class="container">
+        <br>
+        <br>
+        
         <ul class="nav nav-pills nav-justified">
             @if(Auth::check())
                 <li @yield('homemenu')><a href='/'>Home</a></li>

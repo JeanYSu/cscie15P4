@@ -3,7 +3,15 @@
 @section('title')
     Edit Photo
 @stop
+@section('homemenu')
 
+@stop
+@section('addkidmenu')
+
+@stop
+@section('addphotomenu')
+    class="active"
+@stop
 
 @section('content')
 
@@ -47,7 +55,7 @@
                 >
         </div>
         <div class='form-group'>
-            <img src='{{ $photo->image_url }}' style='width:150px'>
+            <img src='{{ $photo->image_url }}' style='width:200px; align=left' class="img-thumbnail">
         </div>
 
 

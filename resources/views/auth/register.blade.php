@@ -40,9 +40,13 @@
             <label for='password_confirmation'>* Confirm Password:</label>
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
+        {!! app('captcha')->display(); !!}
 
         <button type='submit' class='btn btn-primary'>Register</button>
 
     </form>
 
+@stop
+@section('body')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 @stop

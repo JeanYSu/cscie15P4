@@ -36,5 +36,14 @@ class PhotosTableSeeder extends Seeder
             'kid_id' => $kid_id,
         ]);
 
+        $kid_id = \P4\Kid::where('name','=','John')->pluck('id');
+        DB::table('photos')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'Busy Panda John',
+            'image_url' => 'http://www.bajiroo.com/wp-content/uploads/2013/01/Funny-Baby-kids-child-images-fun-bajiroo-photos-14.jpg',
+            'kid_id' => $kid_id,
+        ]);
+
     }
 }

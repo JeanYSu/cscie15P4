@@ -21,6 +21,7 @@ class CreateKidsTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('family_code');
+            $table->string('avatar')->nullable();
 
         });
     }
